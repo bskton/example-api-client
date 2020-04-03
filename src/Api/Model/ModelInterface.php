@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Bskton\Example\API\Model
+ * @package  Bskton\Example\Api\Model
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace Bskton\Example\API\Model;
+namespace Bskton\Example\Api\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package Bskton\Example\API\Model
+ * @package Bskton\Example\Api\Model
  * @author  Swagger Codegen team
  */
 interface ModelInterface

@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Bskton\Example\API;
+namespace Bskton\Example\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -93,7 +93,7 @@ class DefaultApi
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bskton\Example\API\Model\CommentsList
+     * @return \Bskton\Example\Api\Model\CommentsList
      */
     public function getComments()
     {
@@ -107,11 +107,11 @@ class DefaultApi
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bskton\Example\API\Model\CommentsList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bskton\Example\Api\Model\CommentsList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCommentsWithHttpInfo()
     {
-        $returnType = '\Bskton\Example\API\Model\CommentsList';
+        $returnType = '\Bskton\Example\Api\Model\CommentsList';
         $request = $this->getCommentsRequest();
 
         try {
@@ -163,7 +163,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bskton\Example\API\Model\CommentsList',
+                        '\Bskton\Example\Api\Model\CommentsList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -203,7 +203,7 @@ class DefaultApi
      */
     public function getCommentsAsyncWithHttpInfo()
     {
-        $returnType = '\Bskton\Example\API\Model\CommentsList';
+        $returnType = '\Bskton\Example\Api\Model\CommentsList';
         $request = $this->getCommentsRequest();
 
         return $this->client
@@ -329,11 +329,11 @@ class DefaultApi
     /**
      * Operation postComment
      *
-     * @param  \Bskton\Example\API\Model\Comment $body body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bskton\Example\API\Model\Comment
+     * @return \Bskton\Example\Api\Model\Comment
      */
     public function postComment($body = null)
     {
@@ -344,15 +344,15 @@ class DefaultApi
     /**
      * Operation postCommentWithHttpInfo
      *
-     * @param  \Bskton\Example\API\Model\Comment $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bskton\Example\API\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bskton\Example\Api\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
     public function postCommentWithHttpInfo($body = null)
     {
-        $returnType = '\Bskton\Example\API\Model\Comment';
+        $returnType = '\Bskton\Example\Api\Model\Comment';
         $request = $this->postCommentRequest($body);
 
         try {
@@ -404,7 +404,7 @@ class DefaultApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bskton\Example\API\Model\Comment',
+                        '\Bskton\Example\Api\Model\Comment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -419,7 +419,7 @@ class DefaultApi
      *
      * 
      *
-     * @param  \Bskton\Example\API\Model\Comment $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -439,14 +439,14 @@ class DefaultApi
      *
      * 
      *
-     * @param  \Bskton\Example\API\Model\Comment $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function postCommentAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Bskton\Example\API\Model\Comment';
+        $returnType = '\Bskton\Example\Api\Model\Comment';
         $request = $this->postCommentRequest($body);
 
         return $this->client
@@ -489,7 +489,7 @@ class DefaultApi
     /**
      * Create request for operation 'postComment'
      *
-     * @param  \Bskton\Example\API\Model\Comment $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -577,11 +577,11 @@ class DefaultApi
      * Operation updateComment
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\API\Model\CommentPatch $body body (optional)
+     * @param  \Bskton\Example\Api\Model\CommentPatch $body body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bskton\Example\API\Model\Comment
+     * @return \Bskton\Example\Api\Model\Comment
      */
     public function updateComment($id, $body = null)
     {
@@ -593,15 +593,15 @@ class DefaultApi
      * Operation updateCommentWithHttpInfo
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\API\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bskton\Example\API\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bskton\Example\Api\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCommentWithHttpInfo($id, $body = null)
     {
-        $returnType = '\Bskton\Example\API\Model\Comment';
+        $returnType = '\Bskton\Example\Api\Model\Comment';
         $request = $this->updateCommentRequest($id, $body);
 
         try {
@@ -653,7 +653,7 @@ class DefaultApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bskton\Example\API\Model\Comment',
+                        '\Bskton\Example\Api\Model\Comment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -669,7 +669,7 @@ class DefaultApi
      * 
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\API\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -690,14 +690,14 @@ class DefaultApi
      * 
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\API\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateCommentAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\Bskton\Example\API\Model\Comment';
+        $returnType = '\Bskton\Example\Api\Model\Comment';
         $request = $this->updateCommentRequest($id, $body);
 
         return $this->client
@@ -741,7 +741,7 @@ class DefaultApi
      * Create request for operation 'updateComment'
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\API\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

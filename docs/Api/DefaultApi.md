@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getComments**
-> \Bskton\Example\API\Model\CommentsList getComments()
+> \Bskton\Example\Api\Model\CommentsList getComments()
 
 
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Bskton\Example\API\Model\CommentsList**](../Model/CommentsList.md)
+[**\Bskton\Example\Api\Model\CommentsList**](../Model/CommentsList.md)
 
 ### Authorization
 
@@ -53,7 +53,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postComment**
-> \Bskton\Example\API\Model\Comment postComment($body)
+> \Bskton\Example\Api\Model\Comment postComment($body)
 
 
 
@@ -67,7 +67,7 @@ $apiInstance = new Bskton\Example\Api\DefaultApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Bskton\Example\API\Model\Comment(); // \Bskton\Example\API\Model\Comment | 
+$body = new \Bskton\Example\Api\Model\Comment(); // \Bskton\Example\Api\Model\Comment | 
 
 try {
     $result = $apiInstance->postComment($body);
@@ -82,11 +82,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Bskton\Example\API\Model\Comment**](../Model/Comment.md)|  | [optional]
+ **body** | [**\Bskton\Example\Api\Model\Comment**](../Model/Comment.md)|  | [optional]
 
 ### Return type
 
-[**\Bskton\Example\API\Model\Comment**](../Model/Comment.md)
+[**\Bskton\Example\Api\Model\Comment**](../Model/Comment.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateComment**
-> \Bskton\Example\API\Model\Comment updateComment($id, $body)
+> \Bskton\Example\Api\Model\Comment updateComment($id, $body)
 
 
 
@@ -115,7 +115,7 @@ $apiInstance = new Bskton\Example\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $id = 56; // int | Comment identifier
-$body = new \Bskton\Example\API\Model\CommentPatch(); // \Bskton\Example\API\Model\CommentPatch | 
+$body = new \Bskton\Example\Api\Model\CommentPatch(); // \Bskton\Example\Api\Model\CommentPatch | 
 
 try {
     $result = $apiInstance->updateComment($id, $body);
@@ -131,11 +131,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Comment identifier |
- **body** | [**\Bskton\Example\API\Model\CommentPatch**](../Model/CommentPatch.md)|  | [optional]
+ **body** | [**\Bskton\Example\Api\Model\CommentPatch**](../Model/CommentPatch.md)|  | [optional]
 
 ### Return type
 
-[**\Bskton\Example\API\Model\Comment**](../Model/Comment.md)
+[**\Bskton\Example\Api\Model\Comment**](../Model/Comment.md)
 
 ### Authorization
 

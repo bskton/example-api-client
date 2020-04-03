@@ -1,6 +1,6 @@
 <?php
 /**
- * CommentsList
+ * CommentPatch
  *
  * PHP version 5
  *
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace Bskton\Example\API\Model;
+namespace Bskton\Example\Api\Model;
 
 use \ArrayAccess;
 use \Bskton\Example\ObjectSerializer;
 
 /**
- * CommentsList Class Doc Comment
+ * CommentPatch Class Doc Comment
  *
  * @category Class
  * @package  Bskton\Example
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CommentsList implements ModelInterface, ArrayAccess
+class CommentPatch implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class CommentsList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CommentsList';
+    protected static $swaggerModelName = 'CommentPatch';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class CommentsList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'name' => 'string',
+        'text' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class CommentsList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'name' => null,
+        'text' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class CommentsList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'name' => 'name',
+        'text' => 'text'
     ];
 
     /**
@@ -105,7 +108,8 @@ class CommentsList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'name' => 'setName',
+        'text' => 'setText'
     ];
 
     /**
@@ -114,7 +118,8 @@ class CommentsList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'name' => 'getName',
+        'text' => 'getText'
     ];
 
     /**
@@ -177,6 +182,8 @@ class CommentsList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
     }
 
     /**
@@ -186,7 +193,7 @@ class CommentsList implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -202,6 +209,54 @@ class CommentsList implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text text
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

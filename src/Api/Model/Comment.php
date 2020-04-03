@@ -27,7 +27,7 @@
  * Do not edit the class manually.
  */
 
-namespace Bskton\Example\API\Model;
+namespace Bskton\Example\Api\Model;
 
 use \ArrayAccess;
 use \Bskton\Example\ObjectSerializer;
