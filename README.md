@@ -74,19 +74,18 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://example.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**getComments**](docs/Api/DefaultApi.md#getcomments) | **GET** /comments | 
 *DefaultApi* | [**postComment**](docs/Api/DefaultApi.md#postcomment) | **POST** /comment | 
-*DefaultApi* | [**updateComment**](docs/Api/DefaultApi.md#updatecomment) | **PATCH** /comment | 
+*DefaultApi* | [**updateComment**](docs/Api/DefaultApi.md#updatecomment) | **PATCH** /comment/{id} | 
 
 
 ## Documentation For Models
 
  - [Comment](docs/Model/Comment.md)
- - [CommentPatch](docs/Model/CommentPatch.md)
  - [CommentsList](docs/Model/CommentsList.md)
 
 

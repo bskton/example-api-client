@@ -93,7 +93,7 @@ class DefaultApi
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Bskton\Example\Api\Model\CommentsList
+     * @return \Bskton\Example\Api\Model\Comment[]
      */
     public function getComments()
     {
@@ -107,11 +107,11 @@ class DefaultApi
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Bskton\Example\Api\Model\CommentsList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Bskton\Example\Api\Model\Comment[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCommentsWithHttpInfo()
     {
-        $returnType = '\Bskton\Example\Api\Model\CommentsList';
+        $returnType = '\Bskton\Example\Api\Model\Comment[]';
         $request = $this->getCommentsRequest();
 
         try {
@@ -163,7 +163,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Bskton\Example\Api\Model\CommentsList',
+                        '\Bskton\Example\Api\Model\Comment[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -203,7 +203,7 @@ class DefaultApi
      */
     public function getCommentsAsyncWithHttpInfo()
     {
-        $returnType = '\Bskton\Example\Api\Model\CommentsList';
+        $returnType = '\Bskton\Example\Api\Model\Comment[]';
         $request = $this->getCommentsRequest();
 
         return $this->client
@@ -577,7 +577,7 @@ class DefaultApi
      * Operation updateComment
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\Api\Model\CommentPatch $body body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -593,7 +593,7 @@ class DefaultApi
      * Operation updateCommentWithHttpInfo
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \Bskton\Example\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -669,7 +669,7 @@ class DefaultApi
      * 
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -690,7 +690,7 @@ class DefaultApi
      * 
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -741,7 +741,7 @@ class DefaultApi
      * Create request for operation 'updateComment'
      *
      * @param  int $id Comment identifier (required)
-     * @param  \Bskton\Example\Api\Model\CommentPatch $body (optional)
+     * @param  \Bskton\Example\Api\Model\Comment $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -755,7 +755,7 @@ class DefaultApi
             );
         }
 
-        $resourcePath = '/comment';
+        $resourcePath = '/comment/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

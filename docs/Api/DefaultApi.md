@@ -1,16 +1,16 @@
 # Bskton\Example\DefaultApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://example.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getComments**](DefaultApi.md#getComments) | **GET** /comments | 
 [**postComment**](DefaultApi.md#postComment) | **POST** /comment | 
-[**updateComment**](DefaultApi.md#updateComment) | **PATCH** /comment | 
+[**updateComment**](DefaultApi.md#updateComment) | **PATCH** /comment/{id} | 
 
 
 # **getComments**
-> \Bskton\Example\Api\Model\CommentsList getComments()
+> \Bskton\Example\Api\Model\Comment[] getComments()
 
 
 
@@ -39,7 +39,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Bskton\Example\Api\Model\CommentsList**](../Model/CommentsList.md)
+[**\Bskton\Example\Api\Model\Comment[]**](../Model/Comment.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ $apiInstance = new Bskton\Example\Api\DefaultApi(
     new GuzzleHttp\Client()
 );
 $id = 56; // int | Comment identifier
-$body = new \Bskton\Example\Api\Model\CommentPatch(); // \Bskton\Example\Api\Model\CommentPatch | 
+$body = new \Bskton\Example\Api\Model\Comment(); // \Bskton\Example\Api\Model\Comment | 
 
 try {
     $result = $apiInstance->updateComment($id, $body);
@@ -131,7 +131,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| Comment identifier |
- **body** | [**\Bskton\Example\Api\Model\CommentPatch**](../Model/CommentPatch.md)|  | [optional]
+ **body** | [**\Bskton\Example\Api\Model\Comment**](../Model/Comment.md)|  | [optional]
 
 ### Return type
 
