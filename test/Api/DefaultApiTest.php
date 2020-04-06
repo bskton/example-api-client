@@ -28,9 +28,17 @@
 
 namespace Bskton\Example;
 
+use Bskton\Example\Api\DefaultApi;
+use Bskton\Example\Api\Model\Comment;
 use \Bskton\Example\Configuration;
 use \Bskton\Example\ApiException;
 use \Bskton\Example\ObjectSerializer;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * DefaultApiTest Class Doc Comment
@@ -72,32 +80,138 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getComments
-     *
-     * .
-     *
+     * @dataProvider commentsListProvider
      */
-    public function testGetComments()
+    public function testGetComments($bodyResponse, $comments)
     {
+        $mock = new MockHandler([
+            new Response(200, [], $bodyResponse),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $result = $apiInstance->getComments();
+        $this->assertEquals($comments, $result, 'Got comments list');
     }
 
     /**
-     * Test case for postComment
-     *
-     * .
-     *
+     * @expectedException \Bskton\Example\ApiException
+     * @expectedExceptionMessage [500] Server error: `GET http://example.com/comments` resulted in a `500 Internal Server Error` response
      */
-    public function testPostComment()
+    public function testGetCommentsException()
     {
+        $mock = new MockHandler([
+            new Response(500),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $apiInstance->getComments();
     }
 
     /**
-     * Test case for updateComment
-     *
-     * .
-     *
+     * @dataProvider commentProvider
      */
-    public function testUpdateComment()
+    public function testPostComment($bodyResponse, $comment)
     {
+        $mock = new MockHandler([
+            new Response(200, [], $bodyResponse),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $result = $apiInstance->postComment($comment);
+        $this->assertEquals($comment, $result, 'The comment was posted successfully');
+    }
+
+    /**
+     * @expectedException \Bskton\Example\ApiException
+     * @expectedExceptionMessage [500] Server error: `POST http://example.com/comment` resulted in a `500 Internal Server Error` response
+     */
+    public function testPostCommentException()
+    {
+        $mock = new MockHandler([
+            new Response(500),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $apiInstance->postComment();
+    }
+
+    /**
+     * @dataProvider commentProvider
+     */
+    public function testUpdateComment($bodyResponse, $comment)
+    {
+        $mock = new MockHandler([
+            new Response(200, [], $bodyResponse),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $result = $apiInstance->updateComment($comment->getId(), $comment);
+        $this->assertEquals($comment, $result, 'The comment was updated successfully');
+    }
+
+    /**
+     * @expectedException \Bskton\Example\ApiException
+     * @expectedExceptionMessage [500] Server error: `PATCH http://example.com/comment/1` resulted in a `500 Internal Server Error` response
+     */
+    public function testUpdateCommentException()
+    {
+        $mock = new MockHandler([
+            new Response(500),
+        ]);
+
+        $handlerStack = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $apiInstance = new DefaultApi($client);
+        $result = $apiInstance->updateComment(1);
+    }
+
+    public function commentsListProvider()
+    {
+        $comments = [];
+        for ($i = 1; $i <= 2; $i++) {
+            $comments[] = new Comment([
+                'id' => $i,
+                'name' => 'Comment name '.$i,
+                'text' => 'Comment text '.$i,
+            ]);
+        }
+
+        $bodyResponse = array_map(function($comment) {
+            return $comment->__toString();
+        }, $comments);
+
+        return [
+            ['[]', []],
+            ['['.implode($bodyResponse, ',').']', $comments],
+        ];
+    }
+
+    public function commentProvider()
+    {
+        $comment = new Comment([
+            'id' => 1,
+            'name' => 'Comment name',
+            'text' => 'Comment text',
+        ]);
+
+        return [
+            [$comment->__toString(), $comment],
+        ];
     }
 }
