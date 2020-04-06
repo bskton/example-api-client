@@ -30,14 +30,9 @@ namespace Bskton\Example;
 
 use Bskton\Example\Api\DefaultApi;
 use Bskton\Example\Api\Model\Comment;
-use \Bskton\Example\Configuration;
-use \Bskton\Example\ApiException;
-use \Bskton\Example\ObjectSerializer;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -185,20 +180,16 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
     {
         $comments = [];
         for ($i = 1; $i <= 2; $i++) {
-            $comments[] = new Comment([
+            $comments[] = ObjectSerializer::toString(new Comment([
                 'id' => $i,
                 'name' => 'Comment name '.$i,
                 'text' => 'Comment text '.$i,
-            ]);
+            ]));
         }
-
-        $bodyResponse = array_map(function($comment) {
-            return $comment->__toString();
-        }, $comments);
 
         return [
             ['[]', []],
-            ['['.implode($bodyResponse, ',').']', $comments],
+            ['['.implode($comments, ',').']', $comments],
         ];
     }
 
@@ -211,7 +202,7 @@ class DefaultApiTest extends \PHPUnit_Framework_TestCase
         ]);
 
         return [
-            [$comment->__toString(), $comment],
+            [ObjectSerializer::toString($comment), $comment],
         ];
     }
 }
